@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML 2014 Designer Edition (Trial) 12.2.5.5293 (http://www.liquid-technologies.com)-->
+<xs:schema xmlns:ns0="https://homegear.eu/xmlNamespaces/CommonTypes"
+           elementFormDefault="qualified"
+           targetNamespace="https://homegear.eu/xmlNamespaces/PacketType"
+           version="0.1"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import schemaLocation=".\CommonTypes.xsd"
+               namespace="https://homegear.eu/xmlNamespaces/CommonTypes" />
+    <xs:complexType name="packet">
+        <xs:sequence>
+            <xs:element name="direction"
+                        minOccurs="1"
+                        maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="toCentral" />
+                        <xs:enumeration value="fromCentral" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="type"
+                        type="ns0:number"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="subtype"
+                        type="ns0:number"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="subtypeIndex"
+                        type="ns0:number"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:choice minOccurs="0"
+                       maxOccurs="1">
+                <xs:element name="channel"
+                            type="ns0:number" />
+                <xs:element name="channelIndex"
+                            type="ns0:number" />
+            </xs:choice>
+            <xs:choice minOccurs="0"
+                       maxOccurs="1">
+                <xs:element name="binaryPayload">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="element"
+                                        minOccurs="1"
+                                        maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="index"
+                                                    type="ns0:number"
+                                                    minOccurs="0"
+                                                    maxOccurs="1" />
+                                        <xs:element name="size"
+                                                    type="ns0:number"
+                                                    minOccurs="0"
+                                                    maxOccurs="1" />
+                                        <xs:element name="constValue"
+                                                    type="ns0:number"
+                                                    minOccurs="0"
+                                                    maxOccurs="1" />
+                                        <xs:element name="isSigned"
+                                                    type="xs:boolean"
+                                                    minOccurs="0"
+                                                    maxOccurs="1" />
+                                        <xs:element name="omitIf"
+                                                    type="ns0:number"
+                                                    minOccurs="0"
+                                                    maxOccurs="1" />
+                                        <xs:element name="parameterGroupId"
+                                                    minOccurs="1"
+                                                    maxOccurs="1">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:minLength value="1" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="jsonPayload">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="element"
+                                        minOccurs="1"
+                                        maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="key"
+                                                    minOccurs="1"
+                                                    maxOccurs="1">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:minLength value="1" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="subkey"
+                                                    minOccurs="0"
+                                                    maxOccurs="1">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:minLength value="1" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="parameterGroupId"
+                                                    minOccurs="1"
+                                                    maxOccurs="1">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:minLength value="1" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="id"
+                      use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:minLength value="1" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

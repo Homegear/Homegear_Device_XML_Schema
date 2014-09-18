@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML 2014 Designer Edition (Trial) 12.2.5.5293 (http://www.liquid-technologies.com)-->
+<xs:schema xmlns:ns0="https://homegear.eu/xmlNamespaces/FunctionGroupType"
+           xmlns:ns1="https://homegear.eu/xmlNamespaces/ParameterGroupType"
+           xmlns:ns2="https://homegear.eu/xmlNamespaces/PacketType"
+           elementFormDefault="qualified"
+           targetNamespace="https://homegear.eu/xmlNamespaces/DeviceType"
+           version="0.1"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import schemaLocation=".\FunctionGroupType.xsd"
+               namespace="https://homegear.eu/xmlNamespaces/FunctionGroupType" />
+    <xs:import schemaLocation=".\ParameterGroupType.xsd"
+               namespace="https://homegear.eu/xmlNamespaces/ParameterGroupType" />
+    <xs:import schemaLocation=".\PacketType.xsd"
+               namespace="https://homegear.eu/xmlNamespaces/PacketType" />
+    <xs:complexType name="device">
+        <xs:sequence>
+            <xs:element name="supportedDevices"
+                        minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="device"
+                                    minOccurs="1"
+                                    maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence minOccurs="0">
+                                    <xs:element name="description"
+                                                minOccurs="1"
+                                                maxOccurs="1">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:minLength value="2" />
+                                                <xs:maxLength value="100" />
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="typeNumber"
+                                                type="xs:hexBinary"
+                                                minOccurs="1"
+                                                maxOccurs="1" />
+                                    <xs:element name="minFirmwareVersion"
+                                                type="xs:hexBinary"
+                                                minOccurs="1"
+                                                maxOccurs="1" />
+                                    <xs:element name="maxFirmwareVersion"
+                                                type="xs:hexBinary"
+                                                minOccurs="0"
+                                                maxOccurs="1" />
+                                </xs:sequence>
+                                <xs:attribute name="id"
+                                              use="required">
+                                    <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                            <xs:minLength value="2" />
+                                            <xs:maxLength value="100" />
+                                        </xs:restriction>
+                                    </xs:simpleType>
+                                </xs:attribute>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="properties"
+                        minOccurs="1"
+                        maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="receiveMode"
+                                    minOccurs="0"
+                                    maxOccurs="unbounded">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="always" />
+                                    <xs:enumeration value="wakeOnRadio" />
+                                    <xs:enumeration value="config" />
+                                    <xs:enumeration value="wakeUp" />
+                                    <xs:enumeration value="lazyConfig" />
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="encryption"
+                                    type="xs:boolean"
+                                    minOccurs="0"
+                                    maxOccurs="1" />
+                        <xs:element name="timeout"
+                                    type="xs:unsignedInt"
+                                    minOccurs="0"
+                                    maxOccurs="1" />
+                        <xs:element name="memorySize"
+                                    type="xs:unsignedLong"
+                                    minOccurs="0"
+                                    maxOccurs="1" />
+                        <xs:element name="visible"
+                                    type="xs:boolean"
+                                    minOccurs="0"
+                                    maxOccurs="1" />
+                        <xs:element name="deletable"
+                                    type="xs:boolean"
+                                    minOccurs="0"
+                                    maxOccurs="1" />
+                        <xs:element name="internal"
+                                    type="xs:boolean"
+                                    minOccurs="0"
+                                    maxOccurs="1" />
+                        <xs:element name="needsTime"
+                                    type="xs:boolean"
+                                    minOccurs="0"
+                                    maxOccurs="1" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="functions"
+                        type="ns0:functions"
+                        minOccurs="1"
+                        maxOccurs="1" />
+            <xs:element name="packets"
+                        minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="packet"
+                                    type="ns2:packet"
+                                    minOccurs="1"
+                                    maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="parameterGroups"
+                        minOccurs="1"
+                        maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:choice minOccurs="0"
+                                   maxOccurs="unbounded">
+                            <xs:element name="configParameters"
+                                        type="ns1:configParameters" />
+                            <xs:element name="variables"
+                                        type="ns1:variables" />
+                            <xs:element name="linkParameters"
+                                        type="ns1:linkParameters" />
+                        </xs:choice>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML 2014 Designer Edition (Trial) 12.2.5.5293 (http://www.liquid-technologies.com)-->
+<xs:schema elementFormDefault="qualified"
+           targetNamespace="https://homegear.eu/xmlNamespaces/LogicalParameterTypes"
+           version="0.1"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="logicalBoolean">
+        <xs:sequence>
+            <xs:element name="default"
+                        type="xs:boolean"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="setToValueOnPairing"
+                        type="xs:boolean"
+                        minOccurs="0"
+                        maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="logicalAction" />
+    <xs:complexType name="logicalInteger">
+        <xs:sequence>
+            <xs:element name="minimalValue"
+                        type="xs:long"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="maximumValue"
+                        type="xs:long"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="default"
+                        type="xs:long"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="setToValueOnPairing"
+                        type="xs:long"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="specialValues"
+                        minOccurs="0"
+                        maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="specialValue"
+                                    minOccurs="0"
+                                    maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:long">
+                                        <xs:attribute name="id"
+                                                      type="xs:string"
+                                                      use="required" />
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="logicalDecimal">
+        <xs:sequence>
+            <xs:element name="minimalValue"
+                        type="xs:decimal"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="maximumValue"
+                        type="xs:decimal"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="default"
+                        type="xs:decimal"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="setToValueOnPairing"
+                        type="xs:decimal"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="specialValues"
+                        minOccurs="0"
+                        maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="specialValue"
+                                    minOccurs="0"
+                                    maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:decimal">
+                                        <xs:attribute name="id"
+                                                      type="xs:string"
+                                                      use="required" />
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="logicalString">
+        <xs:sequence>
+            <xs:element name="default"
+                        type="xs:string"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="setToValueOnPairing"
+                        type="xs:string"
+                        minOccurs="0"
+                        maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="logicalEnumeration">
+        <xs:sequence>
+            <xs:element name="default"
+                        type="xs:unsignedInt"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="value"
+                        minOccurs="0"
+                        maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id"
+                                    type="xs:string"
+                                    minOccurs="0"
+                                    maxOccurs="1" />
+                        <xs:element name="index"
+                                    type="xs:unsignedInt"
+                                    minOccurs="0"
+                                    maxOccurs="1" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

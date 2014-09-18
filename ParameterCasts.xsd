@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML 2014 Designer Edition (Trial) 12.2.5.5293 (http://www.liquid-technologies.com)-->
+<xs:schema xmlns:ns0="https://homegear.eu/xmlNamespaces/CommonTypes"
+           elementFormDefault="qualified"
+           targetNamespace="https://homegear.eu/xmlNamespaces/ParameterCasts"
+           version="0.1"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import schemaLocation=".\CommonTypes.xsd"
+               namespace="https://homegear.eu/xmlNamespaces/CommonTypes" />
+    <xs:complexType name="decimalIntegerScale">
+        <xs:all>
+            <xs:element name="factor"
+                        type="ns0:number" />
+            <xs:element name="offset"
+                        type="ns0:number" />
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="integerIntegerScale">
+        <xs:all>
+            <xs:element name="operation">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="division" />
+                        <xs:enumeration value="multiplication" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="factor"
+                        type="xs:integer" />
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="integerIntegerMap">
+        <xs:sequence>
+            <xs:element name="direction"
+                        minOccurs="1"
+                        maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="fromDevice" />
+                        <xs:enumeration value="toDevice" />
+                        <xs:enumeration value="both" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="value"
+                        minOccurs="1"
+                        maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:all>
+                        <xs:element name="physical"
+                                    type="ns0:number" />
+                        <xs:element name="logical"
+                                    type="ns0:number" />
+                    </xs:all>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="booleanInteger">
+        <xs:sequence>
+            <xs:element name="trueValue"
+                        type="ns0:number"
+                        minOccurs="0" />
+            <xs:element name="falseValue"
+                        type="ns0:number"
+                        minOccurs="0" />
+            <xs:element name="invert"
+                        type="xs:boolean"
+                        minOccurs="0" />
+            <xs:element name="threshold"
+                        type="ns0:number"
+                        minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="decimalConfigTime">
+        <xs:all minOccurs="0">
+            <xs:element name="factors">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="factor"
+                                    type="xs:decimal"
+                                    minOccurs="1"
+                                    maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="valueSize"
+                        type="ns0:number" />
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="integerTinyFloat">
+        <xs:all minOccurs="0">
+            <xs:element name="mantissaStart"
+                        type="xs:unsignedByte" />
+            <xs:element name="mantissaSize"
+                        type="xs:unsignedByte" />
+            <xs:element name="exponentStart"
+                        type="xs:unsignedByte" />
+            <xs:element name="exponentSize"
+                        type="xs:unsignedByte" />
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="stringUnsignedInteger" />
+    <xs:complexType name="blindTest">
+        <xs:all>
+            <xs:element name="value"
+                        type="ns0:number" />
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="optionString" />
+    <xs:complexType name="stringJsonArrayDecimal" />
+    <xs:complexType name="rpcBinary" />
+    <xs:complexType name="toggle" />
+    <xs:complexType name="cfm" />
+    <xs:complexType name="ccrtdnParty" />
+</xs:schema>

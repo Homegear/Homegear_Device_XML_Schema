@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML 2014 Designer Edition (Trial) 12.2.5.5293 (http://www.liquid-technologies.com)-->
+<xs:schema xmlns:ns0="https://homegear.eu/xmlNamespaces/CommonTypes"
+           elementFormDefault="qualified"
+           targetNamespace="https://homegear.eu/xmlNamespaces/PhysicalParameterTypes"
+           version="0.1"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import schemaLocation=".\CommonTypes.xsd"
+               namespace="https://homegear.eu/xmlNamespaces/CommonTypes" />
+    <xs:complexType name="physicalParameter">
+        <xs:sequence>
+            <xs:element name="index"
+                        type="ns0:number"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="size"
+                        type="ns0:number"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="mask"
+                        type="ns0:number"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="list"
+                        type="xs:unsignedByte"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="type"
+                        minOccurs="1"
+                        maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="command" />
+                        <xs:enumeration value="centralCommand" />
+                        <xs:enumeration value="internal" />
+                        <xs:enumeration value="config" />
+                        <xs:enumeration value="configString" />
+                        <xs:enumeration value="store" />
+                        <xs:enumeration value="memory" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="endianess"
+                        minOccurs="0"
+                        maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="big" />
+                        <xs:enumeration value="little" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="memoryIndex"
+                        type="xs:decimal"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="memoryChannelStep"
+                        type="xs:decimal"
+                        minOccurs="0"
+                        maxOccurs="1" />
+        </xs:sequence>
+        <xs:attribute name="id">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:minLength value="1" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="groupId"
+                      type="xs:string" />
+    </xs:complexType>
+    <xs:complexType name="physicalInteger">
+        <xs:complexContent>
+            <xs:extension xmlns:q1="https://homegear.eu/xmlNamespaces/PhysicalParameterTypes"
+                          base="q1:physicalParameter" />
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="physicalBoolean">
+        <xs:complexContent>
+            <xs:extension xmlns:q2="https://homegear.eu/xmlNamespaces/PhysicalParameterTypes"
+                          base="q2:physicalParameter" />
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="physicalString">
+        <xs:complexContent>
+            <xs:extension xmlns:q3="https://homegear.eu/xmlNamespaces/PhysicalParameterTypes"
+                          base="q3:physicalParameter" />
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
