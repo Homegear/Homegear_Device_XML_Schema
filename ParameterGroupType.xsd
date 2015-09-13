@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--Created with Liquid XML 2014 Designer Edition (Trial) 12.2.5.5293 (http://www.liquid-technologies.com)-->
+<!--Created with Liquid XML 2014 Designer Edition 12.2.8.5459 (http://www.liquid-technologies.com)-->
 <xs:schema xmlns:ns0="https://homegear.eu/xmlNamespaces/CommonTypes"
            xmlns:ns1="https://homegear.eu/xmlNamespaces/ParameterCasts"
            xmlns:ns2="https://homegear.eu/xmlNamespaces/LogicalParameterTypes"
@@ -14,162 +14,244 @@
                namespace="https://homegear.eu/xmlNamespaces/LogicalParameterTypes" />
     <xs:import schemaLocation=".\PhysicalParameterTypes.xsd"
                namespace="https://homegear.eu/xmlNamespaces/PhysicalParameterTypes" />
+    <xs:import schemaLocation=".\CommonTypes.xsd"
+               namespace="https://homegear.eu/xmlNamespaces/CommonTypes" />
     <xs:complexType abstract="true"
                     name="parameterGroup">
-        <xs:sequence maxOccurs="unbounded">
-            <xs:element name="parameter"
-                        minOccurs="0"
-                        maxOccurs="unbounded">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="properties"
-                                    minOccurs="0"
-                                    maxOccurs="1">
-                            <xs:complexType>
-                                <xs:sequence>
-                                    <xs:element name="readable"
-                                                type="xs:boolean"
-                                                minOccurs="0" />
-                                    <xs:element name="writeable"
-                                                type="xs:boolean"
-                                                minOccurs="0" />
-                                    <xs:element name="visible"
-                                                type="xs:boolean"
-                                                minOccurs="0" />
-                                    <xs:element name="internal"
-                                                type="xs:boolean"
-                                                minOccurs="0" />
-                                    <xs:element name="parameterGroupSelector"
-                                                type="xs:boolean"
-                                                minOccurs="0" />
-                                    <xs:element name="service"
-                                                type="xs:boolean"
-                                                minOccurs="0" />
-                                    <xs:element name="sticky"
-                                                type="xs:boolean"
-                                                minOccurs="0" />
-                                    <xs:element name="control"
-                                                type="xs:string"
-                                                minOccurs="0" />
-                                    <xs:element name="unit"
-                                                type="xs:string"
-                                                minOccurs="0"
-                                                maxOccurs="1" />
-                                    <xs:element name="casts"
-                                                minOccurs="0"
-                                                maxOccurs="1">
-                                        <xs:complexType>
-                                            <xs:choice minOccurs="0"
-                                                       maxOccurs="unbounded">
-                                                <xs:element name="decimalIntegerScale"
-                                                            type="ns1:decimalIntegerScale" />
-                                                <xs:element name="integerIntegerScale"
-                                                            type="ns1:integerIntegerScale" />
-                                                <xs:element name="integerIntegerMap"
-                                                            type="ns1:integerIntegerMap" />
-                                                <xs:element name="booleanInteger"
-                                                            type="ns1:booleanInteger" />
-                                                <xs:element name="decimalConfigTime"
-                                                            type="ns1:decimalConfigTime" />
-                                                <xs:element name="integerTinyFloat"
-                                                            type="ns1:integerTinyFloat" />
-                                                <xs:element name="stringUnsignedInteger"
-                                                            type="ns1:stringUnsignedInteger" />
-                                                <xs:element name="blindTest"
-                                                            type="ns1:blindTest" />
-                                                <xs:element name="optionString"
-                                                            type="ns1:optionString" />
-                                                <xs:element name="stringJsonArrayDecimal"
-                                                            type="ns1:stringJsonArrayDecimal" />
-                                                <xs:element name="rpcBinary"
-                                                            type="ns1:rpcBinary" />
-                                                <xs:element name="toggle"
-                                                            type="ns1:toggle" />
-                                                <xs:element name="cfm"
-                                                            type="ns1:cfm" />
-                                                <xs:element name="ccrtdnParty"
-                                                            type="ns1:ccrtdnParty" />
-                                            </xs:choice>
-                                        </xs:complexType>
-                                    </xs:element>
-                                </xs:sequence>
-                            </xs:complexType>
-                        </xs:element>
-                        <xs:choice minOccurs="1"
-                                   maxOccurs="1">
-                            <xs:element name="logicalBoolean"
-                                        type="ns2:logicalBoolean" />
-                            <xs:element name="logicalAction"
-                                        type="ns2:logicalAction" />
-                            <xs:element name="logicalInteger"
-                                        type="ns2:logicalInteger" />
-                            <xs:element name="logicalDecimal"
-                                        type="ns2:logicalDecimal" />
-                            <xs:element name="logicalString"
-                                        type="ns2:logicalString" />
-                            <xs:element name="logicalEnumeration"
-                                        type="ns2:logicalEnumeration" />
-                        </xs:choice>
-                        <xs:choice minOccurs="1"
-                                   maxOccurs="1">
-                            <xs:element name="physicalInteger"
-                                        type="ns3:physicalInteger" />
-                            <xs:element name="physicalBoolean"
-                                        type="ns3:physicalBoolean" />
-                            <xs:element name="physicalString"
-                                        type="ns3:physicalString" />
-                        </xs:choice>
-                        <xs:element name="packets"
-                                    minOccurs="0"
-                                    maxOccurs="1">
-                            <xs:complexType>
-                                <xs:choice minOccurs="1"
-                                           maxOccurs="unbounded">
-                                    <xs:element name="packet">
-                                        <xs:complexType>
-                                            <xs:sequence minOccurs="0"
-                                                         maxOccurs="1">
-                                                <xs:element name="autoReset">
-                                                    <xs:complexType>
-                                                        <xs:sequence>
-                                                            <xs:element name="parameterId"
-                                                                        type="xs:string"
-                                                                        minOccurs="1"
-                                                                        maxOccurs="unbounded" />
-                                                        </xs:sequence>
-                                                    </xs:complexType>
-                                                </xs:element>
-                                                <xs:element name="delayedAutoReset">
-                                                    <xs:complexType>
-                                                        <xs:all>
-                                                            <xs:element name="resetDelayParameterId"
-                                                                        type="xs:string" />
-                                                            <xs:element name="resetTo"
-                                                                        type="ns0:number" />
-                                                        </xs:all>
-                                                    </xs:complexType>
-                                                </xs:element>
-                                            </xs:sequence>
+        <xs:sequence minOccurs="1"
+                     maxOccurs="1">
+            <xs:sequence>
+                <xs:element name="parameter"
+                            minOccurs="0"
+                            maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="properties"
+                                        minOccurs="0"
+                                        maxOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="readable"
+                                                    type="xs:boolean"
+                                                    minOccurs="0" />
+                                        <xs:element name="writeable"
+                                                    type="xs:boolean"
+                                                    minOccurs="0" />
+                                        <xs:element name="addonWriteable"
+                                                    type="xs:boolean"
+                                                    minOccurs="0" />
+                                        <xs:element name="visible"
+                                                    type="xs:boolean"
+                                                    minOccurs="0" />
+                                        <xs:element name="internal"
+                                                    type="xs:boolean"
+                                                    minOccurs="0" />
+                                        <xs:element name="parameterGroupSelector"
+                                                    type="xs:boolean"
+                                                    minOccurs="0" />
+                                        <xs:element name="service"
+                                                    type="xs:boolean"
+                                                    minOccurs="0" />
+                                        <xs:element name="sticky"
+                                                    type="xs:boolean"
+                                                    minOccurs="0" />
+                                        <xs:element name="transform"
+                                                    type="xs:boolean"
+                                                    minOccurs="0" />
+                                        <xs:element name="signed"
+                                                    type="xs:boolean"
+                                                    minOccurs="0" />
+                                        <xs:element name="control"
+                                                    type="xs:string"
+                                                    minOccurs="0" />
+                                        <xs:element name="unit"
+                                                    type="xs:string"
+                                                    minOccurs="0"
+                                                    maxOccurs="1" />
+                                        <xs:element name="casts"
+                                                    minOccurs="0"
+                                                    maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:choice minOccurs="0"
+                                                           maxOccurs="unbounded">
+                                                    <xs:element name="decimalIntegerScale"
+                                                                type="ns1:decimalIntegerScale" />
+                                                    <xs:element name="integerIntegerScale"
+                                                                type="ns1:integerIntegerScale" />
+                                                    <xs:element name="integerIntegerMap"
+                                                                type="ns1:integerIntegerMap" />
+                                                    <xs:element name="booleanInteger"
+                                                                type="ns1:booleanInteger" />
+                                                    <xs:element name="booleanString"
+                                                                type="ns1:booleanString" />
+                                                    <xs:element name="decimalConfigTime"
+                                                                type="ns1:decimalConfigTime" />
+                                                    <xs:element name="integerTinyFloat"
+                                                                type="ns1:integerTinyFloat" />
+                                                    <xs:element name="stringUnsignedInteger"
+                                                                type="ns1:stringUnsignedInteger" />
+                                                    <xs:element name="blindTest"
+                                                                type="ns1:blindTest" />
+                                                    <xs:element name="optionString"
+                                                                type="ns1:optionString" />
+                                                    <xs:element name="stringJsonArrayDecimal"
+                                                                type="ns1:stringJsonArrayDecimal" />
+                                                    <xs:element name="rpcBinary"
+                                                                type="ns1:rpcBinary" />
+                                                    <xs:element name="toggle"
+                                                                type="ns1:toggle" />
+                                                    <xs:element name="cfm"
+                                                                type="ns1:cfm" />
+                                                    <xs:element name="ccrtdnParty"
+                                                                type="ns1:ccrtdnParty" />
+                                                    <xs:element name="stringReplace"
+                                                                type="ns1:stringReplace" />
+                                                </xs:choice>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:choice minOccurs="1"
+                                       maxOccurs="1">
+                                <xs:element name="logicalBoolean"
+                                            type="ns2:logicalBoolean" />
+                                <xs:element name="logicalAction"
+                                            type="ns2:logicalAction" />
+                                <xs:element name="logicalInteger"
+                                            type="ns2:logicalInteger" />
+                                <xs:element name="logicalDecimal"
+                                            type="ns2:logicalDecimal" />
+                                <xs:element name="logicalString"
+                                            type="ns2:logicalString" />
+                                <xs:element name="logicalEnumeration"
+                                            type="ns2:logicalEnumeration" />
+                                <xs:element name="logicalArray"
+                                            type="ns2:logicalArray" />
+                                <xs:element name="logicalStruct"
+                                            type="ns2:logicalStruct" />
+                            </xs:choice>
+                            <xs:choice minOccurs="0"
+                                       maxOccurs="1">
+                                <xs:element name="physicalInteger"
+                                            type="ns3:physicalInteger" />
+                                <xs:element name="physicalBoolean"
+                                            type="ns3:physicalBoolean" />
+                                <xs:element name="physicalString"
+                                            type="ns3:physicalString" />
+                            </xs:choice>
+                            <xs:element name="packets"
+                                        minOccurs="0"
+                                        maxOccurs="1">
+                                <xs:complexType>
+                                    <xs:choice minOccurs="1"
+                                               maxOccurs="unbounded">
+                                        <xs:element name="packet">
+                                            <xs:complexType>
+                                                <xs:sequence minOccurs="0"
+                                                             maxOccurs="1">
+                                                    <xs:element name="type">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="get" />
+                                                                <xs:enumeration value="set" />
+                                                                <xs:enumeration value="event" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="responseId"
+                                                                type="xs:string">
+                                                        <xs:annotation>
+                                                            <xs:documentation>The id of the response packet to a get or set packet.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="autoReset">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="parameterId"
+                                                                            type="xs:string"
+                                                                            minOccurs="1"
+                                                                            maxOccurs="unbounded" />
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="delayedAutoReset">
+                                                        <xs:complexType>
+                                                            <xs:all>
+                                                                <xs:element name="resetDelayParameterId"
+                                                                            type="xs:string" />
+                                                                <xs:element name="resetTo"
+                                                                            type="ns0:number" />
+                                                            </xs:all>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="conditionOperator">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="e" />
+                                                                <xs:enumeration value="g" />
+                                                                <xs:enumeration value="l" />
+                                                                <xs:enumeration value="ge" />
+                                                                <xs:enumeration value="le" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="conditionValue"
+                                                                type="ns0:number" />
+                                                </xs:sequence>
+                                                <xs:attribute name="id"
+                                                              use="required">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:minLength value="1" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="id"
+                                      type="xs:string"
+                                      use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:sequence>
+                <xs:element name="scenario"
+                            minOccurs="0"
+                            maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence minOccurs="1"
+                                     maxOccurs="unbounded">
+                            <xs:element name="parameter">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:anySimpleType">
                                             <xs:attribute name="id"
-                                                          use="required">
-                                                <xs:simpleType>
-                                                    <xs:restriction base="xs:string">
-                                                        <xs:minLength value="1" />
-                                                    </xs:restriction>
-                                                </xs:simpleType>
-                                            </xs:attribute>
-                                        </xs:complexType>
-                                    </xs:element>
-                                </xs:choice>
-                            </xs:complexType>
-                        </xs:element>
-                    </xs:sequence>
-                    <xs:attribute name="id"
-                                  type="xs:string"
-                                  use="required" />
-                </xs:complexType>
-            </xs:element>
+                                                          type="xs:string" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="id"
+                                      type="xs:string" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
         </xs:sequence>
+        <xs:attribute name="id">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:minLength value="1" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attributeGroup xmlns:q1="https://homegear.eu/xmlNamespaces/ParameterGroupType"
+                           ref="q1:memoryAddressGroup" />
     </xs:complexType>
     <xs:complexType name="configParameters">
         <xs:complexContent>
@@ -188,12 +270,12 @@
             <xs:extension xmlns:q3="https://homegear.eu/xmlNamespaces/ParameterGroupType"
                           base="q3:configParameters">
                 <xs:sequence>
-                    <xs:element name="defaultLinkSettings"
+                    <xs:element name="linkScenario"
                                 minOccurs="0"
                                 maxOccurs="unbounded">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element name="defaultLinkSetting">
+                                <xs:element name="parameter">
                                     <xs:complexType>
                                         <xs:simpleContent>
                                             <xs:extension base="xs:anySimpleType">
@@ -210,14 +292,13 @@
                         </xs:complexType>
                     </xs:element>
                 </xs:sequence>
-                <xs:attributeGroup ref="q3:memoryAddressGroup" />
                 <xs:attributeGroup ref="q3:linkMemoryOffsetGroup" />
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
     <xs:attributeGroup name="memoryAddressGroup">
         <xs:attribute name="memoryAddressStart"
-                      type="xs:string"
+                      type="xs:unsignedInt"
                       use="optional" />
         <xs:attribute name="memoryAddressStep"
                       type="xs:unsignedByte"

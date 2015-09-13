@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--Created with Liquid XML 2014 Designer Edition (Trial) 12.2.5.5293 (http://www.liquid-technologies.com)-->
+<!--Created with Liquid XML 2014 Designer Edition 12.2.8.5459 (http://www.liquid-technologies.com)-->
 <xs:schema xmlns:ns0="https://homegear.eu/xmlNamespaces/CommonTypes"
            elementFormDefault="qualified"
            targetNamespace="https://homegear.eu/xmlNamespaces/ParameterCasts"
@@ -72,6 +72,19 @@
                         minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
+    <xs:complexType name="booleanString">
+        <xs:sequence>
+            <xs:element name="trueValue"
+                        type="xs:string"
+                        minOccurs="0" />
+            <xs:element name="falseValue"
+                        type="xs:string"
+                        minOccurs="0" />
+            <xs:element name="invert"
+                        type="xs:boolean"
+                        minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="decimalConfigTime">
         <xs:all minOccurs="0">
             <xs:element name="factors">
@@ -110,7 +123,32 @@
     <xs:complexType name="optionString" />
     <xs:complexType name="stringJsonArrayDecimal" />
     <xs:complexType name="rpcBinary" />
-    <xs:complexType name="toggle" />
+    <xs:complexType name="toggle">
+        <xs:sequence>
+            <xs:element name="parameter"
+                        type="xs:string"
+                        minOccurs="1"
+                        maxOccurs="1" />
+            <xs:element name="on"
+                        type="ns0:number"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="off"
+                        type="ns0:number"
+                        minOccurs="0"
+                        maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="cfm" />
     <xs:complexType name="ccrtdnParty" />
+    <xs:complexType name="stringReplace">
+        <xs:sequence>
+            <xs:element name="search"
+                        type="xs:string"
+                        minOccurs="1" />
+            <xs:element name="replace"
+                        type="xs:string"
+                        minOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>

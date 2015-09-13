@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--Created with Liquid XML 2014 Designer Edition (Trial) 12.2.5.5293 (http://www.liquid-technologies.com)-->
-<xs:schema xmlns:ns0="https://homegear.eu/xmlNamespaces/FunctionGroupType"
+<!--Created with Liquid XML 2014 Designer Edition 12.2.8.5459 (http://www.liquid-technologies.com)-->
+<xs:schema xmlns:ns4="https://homegear.eu/xmlNamespaces/CommonTypes"
            xmlns:ns1="https://homegear.eu/xmlNamespaces/ParameterGroupType"
            xmlns:ns2="https://homegear.eu/xmlNamespaces/PacketType"
+           xmlns:ns0="https://homegear.eu/xmlNamespaces/FunctionGroupType"
+           xmlns:ns3="https://homegear.eu/xmlNamespaces/RunProgramType"
            elementFormDefault="qualified"
            targetNamespace="https://homegear.eu/xmlNamespaces/DeviceType"
            version="0.1"
@@ -13,10 +15,14 @@
                namespace="https://homegear.eu/xmlNamespaces/ParameterGroupType" />
     <xs:import schemaLocation=".\PacketType.xsd"
                namespace="https://homegear.eu/xmlNamespaces/PacketType" />
+    <xs:import schemaLocation=".\RunProgramType.xsd"
+               namespace="https://homegear.eu/xmlNamespaces/RunProgramType" />
+    <xs:import schemaLocation=".\CommonTypes.xsd"
+               namespace="https://homegear.eu/xmlNamespaces/CommonTypes" />
     <xs:complexType name="device">
         <xs:sequence>
             <xs:element name="supportedDevices"
-                        minOccurs="0">
+                        minOccurs="1">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="device"
@@ -35,15 +41,15 @@
                                         </xs:simpleType>
                                     </xs:element>
                                     <xs:element name="typeNumber"
-                                                type="xs:hexBinary"
+                                                type="ns4:number"
                                                 minOccurs="1"
                                                 maxOccurs="1" />
                                     <xs:element name="minFirmwareVersion"
-                                                type="xs:hexBinary"
-                                                minOccurs="1"
+                                                type="ns4:number"
+                                                minOccurs="0"
                                                 maxOccurs="1" />
                                     <xs:element name="maxFirmwareVersion"
-                                                type="xs:hexBinary"
+                                                type="ns4:number"
                                                 minOccurs="0"
                                                 maxOccurs="1" />
                                 </xs:sequence>
@@ -61,6 +67,10 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="runProgram"
+                        type="ns3:runProgram"
+                        minOccurs="0"
+                        maxOccurs="1" />
             <xs:element name="properties"
                         minOccurs="1"
                         maxOccurs="1">
@@ -75,6 +85,7 @@
                                     <xs:enumeration value="wakeOnRadio" />
                                     <xs:enumeration value="config" />
                                     <xs:enumeration value="wakeUp" />
+                                    <xs:enumeration value="wakeUp2" />
                                     <xs:enumeration value="lazyConfig" />
                                 </xs:restriction>
                             </xs:simpleType>
@@ -104,6 +115,10 @@
                                     minOccurs="0"
                                     maxOccurs="1" />
                         <xs:element name="needsTime"
+                                    type="xs:boolean"
+                                    minOccurs="0"
+                                    maxOccurs="1" />
+                        <xs:element name="hasBattery"
                                     type="xs:boolean"
                                     minOccurs="0"
                                     maxOccurs="1" />

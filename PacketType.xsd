@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--Created with Liquid XML 2014 Designer Edition (Trial) 12.2.5.5293 (http://www.liquid-technologies.com)-->
+<!--Created with Liquid XML 2014 Designer Edition 12.2.8.5459 (http://www.liquid-technologies.com)-->
 <xs:schema xmlns:ns0="https://homegear.eu/xmlNamespaces/CommonTypes"
            elementFormDefault="qualified"
            targetNamespace="https://homegear.eu/xmlNamespaces/PacketType"
@@ -19,6 +19,10 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
+            <xs:element name="length"
+                        type="ns0:number"
+                        minOccurs="0"
+                        maxOccurs="1" />
             <xs:element name="type"
                         type="ns0:number"
                         minOccurs="0"
@@ -31,13 +35,51 @@
                         type="ns0:number"
                         minOccurs="0"
                         maxOccurs="1" />
+            <xs:element name="function1"
+                        type="xs:string"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="function2"
+                        type="xs:string"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="metaString1"
+                        type="xs:string"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="metaString2"
+                        type="xs:string"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="responseType"
+                        type="ns0:number"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="responseSubtype"
+                        type="ns0:number"
+                        minOccurs="0"
+                        maxOccurs="1" />
             <xs:choice minOccurs="0"
                        maxOccurs="1">
                 <xs:element name="channel"
                             type="ns0:number" />
-                <xs:element name="channelIndex"
-                            type="ns0:number" />
+                <xs:sequence>
+                    <xs:element name="channelIndex"
+                                type="ns0:number" />
+                </xs:sequence>
             </xs:choice>
+            <xs:element name="doubleSend"
+                        type="xs:boolean"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="splitAfter"
+                        type="ns0:number"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="maxPackets"
+                        type="ns0:number"
+                        minOccurs="0"
+                        maxOccurs="1" />
             <xs:choice minOccurs="0"
                        maxOccurs="1">
                 <xs:element name="binaryPayload">
@@ -56,10 +98,27 @@
                                                     type="ns0:number"
                                                     minOccurs="0"
                                                     maxOccurs="1" />
-                                        <xs:element name="constValue"
+                                        <xs:element name="index2"
                                                     type="ns0:number"
                                                     minOccurs="0"
                                                     maxOccurs="1" />
+                                        <xs:element name="size2"
+                                                    type="ns0:number"
+                                                    minOccurs="0"
+                                                    maxOccurs="1" />
+                                        <xs:element name="index2Offset"
+                                                    type="ns0:number"
+                                                    minOccurs="0"
+                                                    maxOccurs="1" />
+                                        <xs:choice minOccurs="0"
+                                                   maxOccurs="1">
+                                            <xs:element name="constValueInteger"
+                                                        type="ns0:number" />
+                                            <xs:element name="constValueDecimal"
+                                                        type="ns0:number" />
+                                            <xs:element name="constValueString"
+                                                        type="xs:string" />
+                                        </xs:choice>
                                         <xs:element name="isSigned"
                                                     type="xs:boolean"
                                                     minOccurs="0"
@@ -68,7 +127,7 @@
                                                     type="ns0:number"
                                                     minOccurs="0"
                                                     maxOccurs="1" />
-                                        <xs:element name="parameterGroupId"
+                                        <xs:element name="parameterId"
                                                     minOccurs="1"
                                                     maxOccurs="1">
                                             <xs:simpleType>
@@ -109,7 +168,7 @@
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
-                                        <xs:element name="parameterGroupId"
+                                        <xs:element name="parameterId"
                                                     minOccurs="1"
                                                     maxOccurs="1">
                                             <xs:simpleType>
@@ -118,6 +177,60 @@
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
+                                        <xs:choice minOccurs="0"
+                                                   maxOccurs="1">
+                                            <xs:element name="constValueBoolean"
+                                                        type="xs:boolean" />
+                                            <xs:element name="constValueInteger"
+                                                        type="ns0:number" />
+                                            <xs:element name="constValueDecimal"
+                                                        type="ns0:number" />
+                                            <xs:element name="constValueString"
+                                                        type="xs:string" />
+                                        </xs:choice>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="httpPayload">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="element"
+                                        minOccurs="1"
+                                        maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="key"
+                                                    minOccurs="1"
+                                                    maxOccurs="1">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:minLength value="1" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="parameterId"
+                                                    minOccurs="1"
+                                                    maxOccurs="1">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:minLength value="1" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:choice minOccurs="0"
+                                                   maxOccurs="1">
+                                            <xs:element name="constValueBoolean"
+                                                        type="xs:boolean" />
+                                            <xs:element name="constValueInteger"
+                                                        type="ns0:number" />
+                                            <xs:element name="constValueDecimal"
+                                                        type="ns0:number" />
+                                            <xs:element name="constValueString"
+                                                        type="xs:string" />
+                                        </xs:choice>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>

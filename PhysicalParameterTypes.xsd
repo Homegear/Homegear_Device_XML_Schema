@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--Created with Liquid XML 2014 Designer Edition (Trial) 12.2.5.5293 (http://www.liquid-technologies.com)-->
+<!--Created with Liquid XML 2014 Designer Edition 12.2.8.5459 (http://www.liquid-technologies.com)-->
 <xs:schema xmlns:ns0="https://homegear.eu/xmlNamespaces/CommonTypes"
            elementFormDefault="qualified"
            targetNamespace="https://homegear.eu/xmlNamespaces/PhysicalParameterTypes"
@@ -25,7 +25,7 @@
                         type="xs:unsignedByte"
                         minOccurs="0"
                         maxOccurs="1" />
-            <xs:element name="type"
+            <xs:element name="operationType"
                         minOccurs="1"
                         maxOccurs="1">
                 <xs:simpleType>
@@ -54,18 +54,22 @@
                         type="xs:decimal"
                         minOccurs="0"
                         maxOccurs="1" />
+            <xs:element name="memoryIndexOperation"
+                        minOccurs="0"
+                        maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="none" />
+                        <xs:enumeration value="addition" />
+                        <xs:enumeration value="subtraction" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
             <xs:element name="memoryChannelStep"
                         type="xs:decimal"
                         minOccurs="0"
                         maxOccurs="1" />
         </xs:sequence>
-        <xs:attribute name="id">
-            <xs:simpleType>
-                <xs:restriction base="xs:string">
-                    <xs:minLength value="1" />
-                </xs:restriction>
-            </xs:simpleType>
-        </xs:attribute>
         <xs:attribute name="groupId"
                       type="xs:string" />
     </xs:complexType>

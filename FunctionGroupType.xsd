@@ -1,19 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--Created with Liquid XML 2014 Designer Edition (Trial) 12.2.5.5293 (http://www.liquid-technologies.com)-->
+<!--Created with Liquid XML 2014 Designer Edition 12.2.8.5459 (http://www.liquid-technologies.com)-->
 <xs:schema xmlns:ns0="https://homegear.eu/xmlNamespaces/ParameterGroupType"
+           xmlns:ns1="https://homegear.eu/xmlNamespaces/CommonTypes"
            elementFormDefault="qualified"
            targetNamespace="https://homegear.eu/xmlNamespaces/FunctionGroupType"
            version="0.1"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:import schemaLocation=".\ParameterGroupType.xsd"
                namespace="https://homegear.eu/xmlNamespaces/ParameterGroupType" />
+    <xs:import schemaLocation=".\CommonTypes.xsd"
+               namespace="https://homegear.eu/xmlNamespaces/CommonTypes" />
     <xs:complexType name="functions">
         <xs:sequence>
-            <xs:element name="function"
-                        xmlns:q1="https://homegear.eu/xmlNamespaces/FunctionGroupType"
+            <xs:element xmlns:q1="https://homegear.eu/xmlNamespaces/FunctionGroupType"
+                        name="function"
                         type="q1:function"
                         minOccurs="1"
-                        maxOccurs="128" />
+                        maxOccurs="256" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="function">
@@ -23,7 +26,7 @@
                         maxOccurs="1">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="enabledEncryptionByDefault"
+                        <xs:element name="encryptionEnabledByDefault"
                                     type="xs:boolean"
                                     minOccurs="0"
                                     maxOccurs="1" />
@@ -31,18 +34,26 @@
                                     type="xs:boolean"
                                     minOccurs="0"
                                     maxOccurs="1" />
-                        <xs:element name="deletable"
-                                    type="xs:boolean"
-                                    minOccurs="0"
-                                    maxOccurs="1" />
                         <xs:element name="internal"
                                     type="xs:boolean"
                                     minOccurs="0"
                                     maxOccurs="1" />
-                        <xs:element name="dynamicChannelCount"
+                        <xs:element name="deletable"
                                     type="xs:boolean"
                                     minOccurs="0"
                                     maxOccurs="1" />
+                        <xs:element name="dynamicChannelCount"
+                                    type="ns1:number"
+                                    minOccurs="0"
+                                    maxOccurs="1" />
+                        <xs:element name="countFromVariable"
+                                    type="xs:string"
+                                    minOccurs="0"
+                                    maxOccurs="1">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="EN">If this element is defined, the channel count is read from the variable specified in this element.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                         <xs:element name="physicalChannelIndexOffset"
                                     type="xs:byte"
                                     minOccurs="0"
@@ -65,11 +76,15 @@
                                     type="xs:boolean"
                                     minOccurs="0"
                                     maxOccurs="1" />
-                        <xs:element name="defaultLinkSettingsElementId"
+                        <xs:element name="defaultLinkScenarioElementId"
                                     type="xs:string"
                                     minOccurs="0"
                                     maxOccurs="1" />
-                        <xs:element name="defaultGroupedLinkSettingsElementId"
+                        <xs:element name="defaultGroupedLinkScenarioElementId1"
+                                    type="xs:string"
+                                    minOccurs="0"
+                                    maxOccurs="1" />
+                        <xs:element name="defaultGroupedLinkScenarioElementId2"
                                     type="xs:string"
                                     minOccurs="0"
                                     maxOccurs="1" />
@@ -119,9 +134,11 @@
                         type="xs:string"
                         minOccurs="0"
                         maxOccurs="1" />
-            <xs:element name="alternativeFunction"
-                        xmlns:q2="https://homegear.eu/xmlNamespaces/FunctionGroupType"
-                        type="q2:function" />
+            <xs:element xmlns:q2="https://homegear.eu/xmlNamespaces/FunctionGroupType"
+                        name="alternativeFunction"
+                        type="q2:function"
+                        minOccurs="0"
+                        maxOccurs="1" />
         </xs:sequence>
         <xs:attribute name="channel"
                       type="xs:unsignedByte"

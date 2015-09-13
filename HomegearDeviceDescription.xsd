@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--Created with Liquid XML 2014 Designer Edition (Trial) 12.2.5.5293 (http://www.liquid-technologies.com)-->
+<!--Created with Liquid XML 2014 Designer Edition 12.2.8.5459 (http://www.liquid-technologies.com)-->
 <xs:schema xmlns:ns0="https://homegear.eu/xmlNamespaces/PrameterGroupType"
            xmlns:ns1="https://homegear.eu/xmlNamespaces/FunctionGroupType"
            xmlns:ns2="https://homegear.eu/xmlNamespaces/DeviceType"
            xmlns:ns3="https://homegear.eu/xmlNamespaces/ParameterGroupType"
            attributeFormDefault="unqualified"
            elementFormDefault="qualified"
-           targetNamespace="https://homegear.eu/xmlNamespaces/Homegear"
+           targetNamespace="https://homegear.eu/xmlNamespaces/HomegearDevice"
            version="0.1"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:import schemaLocation=".\DeviceType.xsd"
@@ -19,6 +19,8 @@
                         <xs:element name="group"
                                     type="ns2:device" />
                     </xs:choice>
+                    <xs:attribute name="version"
+                                  type="xs:integer" />
                 </xs:extension>
             </xs:complexContent>
         </xs:complexType>
