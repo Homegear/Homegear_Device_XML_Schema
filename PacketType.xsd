@@ -63,10 +63,8 @@
                        maxOccurs="1">
                 <xs:element name="channel"
                             type="ns0:number" />
-                <xs:sequence>
-                    <xs:element name="channelIndex"
-                                type="ns0:number" />
-                </xs:sequence>
+                <xs:element name="channelIndex"
+                            type="ns0:number" />
             </xs:choice>
             <xs:element name="doubleSend"
                         type="xs:boolean"
