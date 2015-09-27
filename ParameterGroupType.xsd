@@ -94,6 +94,8 @@
                                                                 type="ns1:blindTest" />
                                                     <xs:element name="optionString"
                                                                 type="ns1:optionString" />
+                                                    <xs:element name="optionInteger"
+                                                                type="ns1:optionInteger" />
                                                     <xs:element name="stringJsonArrayDecimal"
                                                                 type="ns1:stringJsonArrayDecimal" />
                                                     <xs:element name="rpcBinary"

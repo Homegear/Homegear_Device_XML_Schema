@@ -121,6 +121,22 @@
         </xs:all>
     </xs:complexType>
     <xs:complexType name="optionString" />
+    <xs:complexType name="optionInteger">
+        <xs:sequence>
+            <xs:element name="value"
+                        minOccurs="1"
+                        maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:all>
+                        <xs:element name="physical"
+                                    type="ns0:number" />
+                        <xs:element name="logical"
+                                    type="ns0:number" />
+                    </xs:all>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="stringJsonArrayDecimal" />
     <xs:complexType name="rpcBinary" />
     <xs:complexType name="toggle">
