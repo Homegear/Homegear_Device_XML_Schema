@@ -108,8 +108,15 @@
                                                     type="ns0:number"
                                                     minOccurs="0"
                                                     maxOccurs="1" />
-                                        <xs:choice minOccurs="0"
+                                        <xs:choice minOccurs="1"
                                                    maxOccurs="1">
+                                            <xs:element name="parameterId">
+                                                <xs:simpleType>
+                                                    <xs:restriction base="xs:string">
+                                                        <xs:minLength value="1" />
+                                                    </xs:restriction>
+                                                </xs:simpleType>
+                                            </xs:element>
                                             <xs:element name="constValueInteger"
                                                         type="ns0:number" />
                                             <xs:element name="constValueDecimal"
@@ -125,15 +132,6 @@
                                                     type="ns0:number"
                                                     minOccurs="0"
                                                     maxOccurs="1" />
-                                        <xs:element name="parameterId"
-                                                    minOccurs="1"
-                                                    maxOccurs="1">
-                                            <xs:simpleType>
-                                                <xs:restriction base="xs:string">
-                                                    <xs:minLength value="1" />
-                                                </xs:restriction>
-                                            </xs:simpleType>
-                                        </xs:element>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
@@ -166,17 +164,15 @@
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
-                                        <xs:element name="parameterId"
-                                                    minOccurs="1"
-                                                    maxOccurs="1">
-                                            <xs:simpleType>
-                                                <xs:restriction base="xs:string">
-                                                    <xs:minLength value="1" />
-                                                </xs:restriction>
-                                            </xs:simpleType>
-                                        </xs:element>
-                                        <xs:choice minOccurs="0"
+                                        <xs:choice minOccurs="1"
                                                    maxOccurs="1">
+                                            <xs:element name="parameterId">
+                                                <xs:simpleType>
+                                                    <xs:restriction base="xs:string">
+                                                        <xs:minLength value="1" />
+                                                    </xs:restriction>
+                                                </xs:simpleType>
+                                            </xs:element>
                                             <xs:element name="constValueBoolean"
                                                         type="xs:boolean" />
                                             <xs:element name="constValueInteger"
@@ -209,17 +205,15 @@
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
-                                        <xs:element name="parameterId"
-                                                    minOccurs="1"
-                                                    maxOccurs="1">
-                                            <xs:simpleType>
-                                                <xs:restriction base="xs:string">
-                                                    <xs:minLength value="1" />
-                                                </xs:restriction>
-                                            </xs:simpleType>
-                                        </xs:element>
-                                        <xs:choice minOccurs="0"
+                                        <xs:choice minOccurs="1"
                                                    maxOccurs="1">
+                                            <xs:element name="parameterId">
+                                                <xs:simpleType>
+                                                    <xs:restriction base="xs:string">
+                                                        <xs:minLength value="1" />
+                                                    </xs:restriction>
+                                                </xs:simpleType>
+                                            </xs:element>
                                             <xs:element name="constValueBoolean"
                                                         type="xs:boolean" />
                                             <xs:element name="constValueInteger"

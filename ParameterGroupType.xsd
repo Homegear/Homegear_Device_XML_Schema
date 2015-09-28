@@ -55,9 +55,6 @@
                                         <xs:element name="sticky"
                                                     type="xs:boolean"
                                                     minOccurs="0" />
-                                        <xs:element name="transform"
-                                                    type="xs:boolean"
-                                                    minOccurs="0" />
                                         <xs:element name="signed"
                                                     type="xs:boolean"
                                                     minOccurs="0" />
