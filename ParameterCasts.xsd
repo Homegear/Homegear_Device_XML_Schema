@@ -167,4 +167,5 @@
                         minOccurs="1" />
         </xs:sequence>
     </xs:complexType>
+    <xs:complexType name="hexStringByteArray" />
 </xs:schema>
