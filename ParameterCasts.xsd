@@ -27,6 +27,8 @@
             </xs:element>
             <xs:element name="factor"
                         type="xs:integer" />
+            <xs:element name="offset"
+                        type="xs:integer" />
         </xs:all>
     </xs:complexType>
     <xs:complexType name="integerIntegerMap">
@@ -168,4 +170,5 @@
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="hexStringByteArray" />
+    <xs:complexType name="timestringSeconds" />
 </xs:schema>

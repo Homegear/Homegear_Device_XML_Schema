@@ -105,8 +105,10 @@
                                                                 type="ns1:ccrtdnParty" />
                                                     <xs:element name="stringReplace"
                                                                 type="ns1:stringReplace" />
-                                                    <xs:element name="heyStringByteArray"
+                                                    <xs:element name="hexStringByteArray"
                                                                 type="ns1:hexStringByteArray" />
+                                                    <xs:element name="timestringSeconds"
+                                                                type="ns1:timestringSeconds" />
                                                 </xs:choice>
                                             </xs:complexType>
                                         </xs:element>
