@@ -40,6 +40,20 @@
                                             </xs:restriction>
                                         </xs:simpleType>
                                     </xs:element>
+                                    <xs:element name="longDescription"
+                                                type="xs:string"
+                                                minOccurs="0"
+                                                maxOccurs="1" />
+                                    <xs:element name="serialPrefix"
+                                                minOccurs="0"
+                                                maxOccurs="1">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:minLength value="1" />
+                                                <xs:maxLength value="5" />
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:element>
                                     <xs:element name="typeNumber"
                                                 type="ns4:number"
                                                 minOccurs="1"
@@ -158,5 +172,7 @@
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
+        <xs:attribute name="version"
+                      type="xs:unsignedInt" />
     </xs:complexType>
 </xs:schema>

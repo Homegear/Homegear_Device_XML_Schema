@@ -31,6 +31,14 @@
                                         maxOccurs="1">
                                 <xs:complexType>
                                     <xs:sequence>
+                                        <xs:element name="label"
+                                                    type="xs:string"
+                                                    minOccurs="0"
+                                                    maxOccurs="1" />
+                                        <xs:element name="description"
+                                                    type="xs:string"
+                                                    minOccurs="0"
+                                                    maxOccurs="1" />
                                         <xs:element name="readable"
                                                     type="xs:boolean"
                                                     minOccurs="0" />
@@ -63,6 +71,13 @@
                                                     minOccurs="0" />
                                         <xs:element name="unit"
                                                     type="xs:string"
+                                                    minOccurs="0"
+                                                    maxOccurs="1" />
+                                        <xs:element name="formFieldType"
+                                                    type="xs:string"
+                                                    minOccurs="0" />
+                                        <xs:element name="formPosition"
+                                                    type="xs:unsignedInt"
                                                     minOccurs="0"
                                                     maxOccurs="1" />
                                         <xs:element name="casts"
@@ -107,8 +122,8 @@
                                                                 type="ns1:stringReplace" />
                                                     <xs:element name="hexStringByteArray"
                                                                 type="ns1:hexStringByteArray" />
-                                                    <xs:element name="timestringSeconds"
-                                                                type="ns1:timestringSeconds" />
+                                                    <xs:element name="timeStringSeconds"
+                                                                type="ns1:timeStringSeconds" />
                                                 </xs:choice>
                                             </xs:complexType>
                                         </xs:element>

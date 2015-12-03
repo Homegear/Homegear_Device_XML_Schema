@@ -170,5 +170,5 @@
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="hexStringByteArray" />
-    <xs:complexType name="timestringSeconds" />
+    <xs:complexType name="timeStringSeconds" />
 </xs:schema>
