@@ -58,7 +58,6 @@ If "permanent" is used, Homegear sends signal 15 (SIGTERM) to the process on shu
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
                         <xs:enumeration value="once" />
-                        <xs:enumeration value="interval" />
                         <xs:enumeration value="permanent" />
                     </xs:restriction>
                 </xs:simpleType>

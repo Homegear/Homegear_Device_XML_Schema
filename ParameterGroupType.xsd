@@ -48,6 +48,9 @@
                                         <xs:element name="addonWriteable"
                                                     type="xs:boolean"
                                                     minOccurs="0" />
+                                        <xs:element name="password"
+                                                    type="xs:boolean"
+                                                    minOccurs="0" />
                                         <xs:element name="visible"
                                                     type="xs:boolean"
                                                     minOccurs="0" />
@@ -151,6 +154,8 @@
                             </xs:choice>
                             <xs:choice minOccurs="0"
                                        maxOccurs="1">
+                                <xs:element name="physicalNone"
+                                            type="ns3:physicalNone" />
                                 <xs:element name="physicalInteger"
                                             type="ns3:physicalInteger" />
                                 <xs:element name="physicalBoolean"
@@ -216,6 +221,14 @@
                                                     </xs:element>
                                                     <xs:element name="conditionValue"
                                                                 type="ns0:number" />
+                                                    <xs:element name="delay"
+                                                                type="xs:unsignedInt"
+                                                                minOccurs="0"
+                                                                maxOccurs="1">
+                                                        <xs:annotation>
+                                                            <xs:documentation xml:lang="EN">Inserts a delay (in ms) after sending the packet. Use this for packet sequences.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
                                                 </xs:sequence>
                                                 <xs:attribute name="id"
                                                               use="required">

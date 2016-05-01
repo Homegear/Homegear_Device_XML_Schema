@@ -73,6 +73,12 @@
         <xs:attribute name="groupId"
                       type="xs:string" />
     </xs:complexType>
+    <xs:complexType name="physicalNone">
+        <xs:complexContent>
+            <xs:extension xmlns:q1="https://homegear.eu/xmlNamespaces/PhysicalParameterTypes"
+                          base="q1:physicalParameter" />
+        </xs:complexContent>
+    </xs:complexType>
     <xs:complexType name="physicalInteger">
         <xs:complexContent>
             <xs:extension xmlns:q1="https://homegear.eu/xmlNamespaces/PhysicalParameterTypes"

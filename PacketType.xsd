@@ -78,6 +78,14 @@
                         type="ns0:number"
                         minOccurs="0"
                         maxOccurs="1" />
+            <xs:element name="repeat"
+                        type="xs:boolean"
+                        minOccurs="0"
+                        maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation xml:lang="EN">Set to false, if you don't want the packet to be sent multiple times. Default value is "true".</xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:choice minOccurs="0"
                        maxOccurs="1">
                 <xs:element name="binaryPayload">
@@ -147,7 +155,7 @@
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name="key"
-                                                    minOccurs="1"
+                                                    minOccurs="0"
                                                     maxOccurs="1">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:string">
@@ -158,6 +166,18 @@
                                         <xs:element name="subkey"
                                                     minOccurs="0"
                                                     maxOccurs="1">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:minLength value="1" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="keyPath"
+                                                    minOccurs="0"
+                                                    maxOccurs="1">
+                                            <xs:annotation>
+                                                <xs:documentation xml:lang="EN">Alternative for key and subkey if the path to the key is deeper than two keys. Seperate the keys by "\". E. g. my_key\my_subkey\my_subsubkey.</xs:documentation>
+                                            </xs:annotation>
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:string">
                                                     <xs:minLength value="1" />
