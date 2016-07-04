@@ -171,4 +171,5 @@
     </xs:complexType>
     <xs:complexType name="hexStringByteArray" />
     <xs:complexType name="timeStringSeconds" />
+    <xs:complexType name="invert" />
 </xs:schema>
