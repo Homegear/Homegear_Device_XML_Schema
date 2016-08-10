@@ -17,6 +17,9 @@
                         type="ns0:number"
                         minOccurs="0"
                         maxOccurs="1" />
+            <xs:element name="bitSize"
+                        type="ns0:number"
+                        minOccurs="0" />
             <xs:element name="mask"
                         type="ns0:number"
                         minOccurs="0"
@@ -69,6 +72,10 @@
                         type="xs:decimal"
                         minOccurs="0"
                         maxOccurs="1" />
+            <xs:element name="address"
+                        type="ns0:number"
+                        minOccurs="0"
+                        maxOccurs="1" />
         </xs:sequence>
         <xs:attribute name="groupId"
                       type="xs:string" />
@@ -95,6 +102,15 @@
         <xs:complexContent>
             <xs:extension xmlns:q3="https://homegear.eu/xmlNamespaces/PhysicalParameterTypes"
                           base="q3:physicalParameter" />
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="physical">
+        <xs:complexContent>
+            <xs:extension xmlns:q1="https://homegear.eu/xmlNamespaces/PhysicalParameterTypes"
+                          base="q1:physicalParameter">
+                <xs:attribute name="type"
+                              type="xs:string" />
+            </xs:extension>
         </xs:complexContent>
     </xs:complexType>
 </xs:schema>

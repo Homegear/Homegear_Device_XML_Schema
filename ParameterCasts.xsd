@@ -172,4 +172,12 @@
     <xs:complexType name="hexStringByteArray" />
     <xs:complexType name="timeStringSeconds" />
     <xs:complexType name="invert" />
+    <xs:complexType name="generic">
+        <xs:sequence>
+            <xs:element name="type"
+                        type="xs:string"
+                        minOccurs="1"
+                        maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>

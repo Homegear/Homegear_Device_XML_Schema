@@ -83,6 +83,10 @@
                                                     type="xs:unsignedInt"
                                                     minOccurs="0"
                                                     maxOccurs="1" />
+                                        <xs:element name="metadata"
+                                                    type="xs:string"
+                                                    minOccurs="0"
+                                                    maxOccurs="1" />
                                         <xs:element name="casts"
                                                     minOccurs="0"
                                                     maxOccurs="1">
@@ -127,6 +131,8 @@
                                                                 type="ns1:hexStringByteArray" />
                                                     <xs:element name="timeStringSeconds"
                                                                 type="ns1:timeStringSeconds" />
+                                                    <xs:element name="generic"
+                                                                type="ns1:generic" />
                                                 </xs:choice>
                                             </xs:complexType>
                                         </xs:element>

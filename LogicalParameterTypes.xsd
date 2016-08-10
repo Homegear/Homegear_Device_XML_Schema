@@ -58,6 +58,47 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
+    <xs:complexType name="logicalInteger64">
+        <xs:sequence>
+            <xs:element name="minimumValue"
+                        type="xs:long"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="maximumValue"
+                        type="xs:long"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="defaultValue"
+                        type="xs:long"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="setToValueOnPairing"
+                        type="xs:long"
+                        minOccurs="0"
+                        maxOccurs="1" />
+            <xs:element name="specialValues"
+                        minOccurs="0"
+                        maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="specialValue"
+                                    minOccurs="0"
+                                    maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:long">
+                                        <xs:attribute name="id"
+                                                      type="xs:string"
+                                                      use="required" />
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="logicalDecimal">
         <xs:sequence>
             <xs:element name="minimumValue"
