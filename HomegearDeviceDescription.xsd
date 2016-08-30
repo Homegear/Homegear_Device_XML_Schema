@@ -19,8 +19,6 @@
                         <xs:element name="group"
                                     type="ns2:device" />
                     </xs:choice>
-                    <xs:attribute name="version"
-                                  type="xs:integer" />
                 </xs:extension>
             </xs:complexContent>
         </xs:complexType>
