@@ -100,6 +100,10 @@
                                                                 type="ns1:decimalIntegerScale" />
                                                     <xs:element name="integerIntegerScale"
                                                                 type="ns1:integerIntegerScale" />
+                                                    <xs:element name="integerOffset"
+                                                                type="ns1:integerOffset" />
+                                                    <xs:element name="decimalOffset"
+                                                                type="ns1:decimalOffset" />
                                                     <xs:element name="integerIntegerMap"
                                                                 type="ns1:integerIntegerMap" />
                                                     <xs:element name="booleanInteger"

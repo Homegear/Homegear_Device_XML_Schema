@@ -31,6 +31,42 @@
                         type="xs:integer" />
         </xs:all>
     </xs:complexType>
+    <xs:complexType name="integerOffset">
+        <xs:sequence>
+            <xs:element name="direction">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="fromPacket" />
+                        <xs:enumeration value="toPacket" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:choice>
+                <xs:element name="subtractFromOffset"
+                            type="xs:integer" />
+                <xs:element name="addOffset"
+                            type="xs:integer" />
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="decimalOffset">
+        <xs:sequence>
+            <xs:element name="direction">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="fromPacket" />
+                        <xs:enumeration value="toPacket" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:choice>
+                <xs:element name="subtractFromOffset"
+                            type="xs:double" />
+                <xs:element name="addOffset"
+                            type="xs:double" />
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="integerIntegerMap">
         <xs:sequence>
             <xs:element name="direction"
@@ -172,6 +208,16 @@
     <xs:complexType name="hexStringByteArray" />
     <xs:complexType name="timeStringSeconds" />
     <xs:complexType name="invert" />
+    <xs:complexType name="round">
+        <xs:sequence>
+            <xs:element name="deccimalPlaces"
+                        type="xs:integer">
+                <xs:annotation>
+                    <xs:documentation xml:lang="EN">The number of decimal places to round to. If set to "0.5" the cast rounds to "0.0" and "0.5".</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="generic">
         <xs:sequence>
             <xs:element name="type"
