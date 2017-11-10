@@ -45,6 +45,9 @@
                                         <xs:element name="writeable"
                                                     type="xs:boolean"
                                                     minOccurs="0" />
+                                        <xs:element name="transmitted"
+                                                    type="xs:boolean"
+                                                    minOccurs="0" />
                                         <xs:element name="addonWriteable"
                                                     type="xs:boolean"
                                                     minOccurs="0" />
