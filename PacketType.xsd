@@ -78,7 +78,7 @@
                                         <xs:element name="responseId"
                                                     type="xs:string">
                                             <xs:annotation>
-                                                <xs:documentation>The id of the response packet to a get or set packet.</xs:documentation>
+                                                <xs:documentation>The id of the response packet.</xs:documentation>
                                             </xs:annotation>
                                         </xs:element>
                                         <xs:element name="conditionOperator">
@@ -184,6 +184,10 @@
                                                     maxOccurs="1" />
                                         <xs:element name="bitSize"
                                                     type="xs:unsignedInt"
+                                                    minOccurs="0"
+                                                    maxOccurs="1" />
+                                        <xs:element name="parameterChannel"
+                                                    type="ns0:number"
                                                     minOccurs="0"
                                                     maxOccurs="1" />
                                         <xs:element name="parameterId"
