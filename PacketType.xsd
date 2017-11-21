@@ -65,6 +65,49 @@
                 </xs:sequence>
                 <xs:element name="responseTypeId"
                             type="xs:string" />
+                <xs:element name="responses"
+                    minOccurs="0"
+                    maxOccurs="1">
+                    <xs:complexType>
+                        <xs:choice minOccurs="1"
+                                   maxOccurs="unbounded">
+                            <xs:element name="response">
+                                <xs:complexType>
+                                    <xs:sequence minOccurs="0"
+                                                 maxOccurs="1">
+                                        <xs:element name="responseId"
+                                                    type="xs:string">
+                                            <xs:annotation>
+                                                <xs:documentation>The id of the response packet to a get or set packet.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="conditionOperator">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="e" />
+                                                    <xs:enumeration value="g" />
+                                                    <xs:enumeration value="l" />
+                                                    <xs:enumeration value="ge" />
+                                                    <xs:enumeration value="le" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="conditionParameterId"
+                                                    type="xs:string"
+                                                    minOccurs="0"
+                                                    maxOccurs="1" />
+                                        <xs:element name="conditionChannel"
+                                                    type="ns0:number"
+                                                    minOccurs="0"
+                                                    maxOccurs="1" />
+                                        <xs:element name="conditionValue"
+                                                    type="ns0:number" />                                        
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:choice>
+                    </xs:complexType>
+                </xs:element>
             </xs:choice>
             <xs:choice minOccurs="0"
                        maxOccurs="1">
