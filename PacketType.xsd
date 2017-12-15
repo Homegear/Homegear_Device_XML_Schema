@@ -243,6 +243,15 @@
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
+                                        <xs:element name="subsubkey"
+                                                    minOccurs="0"
+                                                    maxOccurs="1">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:minLength value="1" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
                                         <xs:element name="keyPath"
                                                     minOccurs="0"
                                                     maxOccurs="1">
