@@ -140,6 +140,14 @@
                                     type="xs:unsignedInt"
                                     minOccurs="0"
                                     maxOccurs="1" />
+                        <xs:element name="interface"
+                                    type="xs:string"
+                                    minOccurs="0"
+                                    maxOccurs="1">
+                            <xs:annotation>
+                                <xs:documentation xml:lang="EN">Used to statically force the used interface. E. g. used by KNX to assign a project to an interface.</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
