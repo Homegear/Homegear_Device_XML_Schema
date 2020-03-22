@@ -110,6 +110,22 @@
                         minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
+    <xs:complexType name="booleanDecimal">
+        <xs:sequence>
+            <xs:element name="trueValue"
+                        type="ns0:number"
+                        minOccurs="0" />
+            <xs:element name="falseValue"
+                        type="ns0:number"
+                        minOccurs="0" />
+            <xs:element name="invert"
+                        type="xs:boolean"
+                        minOccurs="0" />
+            <xs:element name="threshold"
+                        type="ns0:number"
+                        minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="booleanString">
         <xs:sequence>
             <xs:element name="trueValue"
